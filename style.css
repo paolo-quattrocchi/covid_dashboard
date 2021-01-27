@@ -1,0 +1,131 @@
+* {
+    font-family: 'Aleo', serif;
+}
+
+:root {
+    --main-color: rgb(160, 22, 22);
+}
+
+.text-main {
+    color: var(--main-color);
+}
+
+.bg-main {
+    background-color: var(--main-color);
+}
+
+body {
+    background-color: #ebecf0;
+}
+
+.card-custom {
+    box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: 0.2s;
+}
+
+.card-custom:hover {
+    box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+}
+
+.card-custom:active {
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+}
+
+.scroll {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.modal-custom {
+    display: block;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 20%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+    overflow-y: scroll;
+}
+
+.modal-custom-content {
+    background-color: #ebecf0;
+    margin: auto;
+    width: 70%;
+    padding: 30px;
+    border-radius: 10px;
+    border-radius: 10px;
+}
+
+.modal-custom.active {
+    z-index: 10;
+    opacity: 1;
+}
+
+.pin-new {
+    border-right: 2px solid rgba(0, 0, 255, 0.2);
+    position: relative;
+    width: 5px;
+    margin-right: 1px;
+}
+
+.pin-new::after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: -3px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: blue;
+}
+
+.pin-death {
+    border-right: 2px solid rgba(255, 0, 0, 0.2);
+    position: relative;
+    width: 5px;
+    margin-right: 1px;
+}
+
+.pin-death::after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: -3px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.pin-recovered {
+    border-right: 2px solid rgba(0, 255, 0, 0.2);
+    position: relative;
+    width: 5px;
+    margin-right: 4px;
+}
+
+.pin-recovered::after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: -3px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: green;
+}
+
+.plot {
+    height: 200px;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    display: flex;
+    align-items: flex-end;
+}

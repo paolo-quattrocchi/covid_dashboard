@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <title>Covid Dashboard</title>
+  </head>
+  <body>
+
+    <div class="modal-custom">
+        <div class="modal-custom-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nostrum veritatis vel. Ipsa iure, quisquam vitae asperiores facere, qui delectus, aperiam dolor tenetur tempora ex id officia ipsam quaerat. Velit.
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <p class="h2">Dati aggiornati al: <span id="data"></span></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card-custom d-flex flex-column h-100">
+                    <p class="h4 mb-5">Casi totali</p>
+                    <p id="totalCases" class="h2 mb-0 text-right text-main mt-auto"></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card-custom d-flex flex-column h-100">
+                    <p class="h4 mb-5">Guariti totali</p>
+                    <p id="totalHealed" class="h2 mb-0 text-right text-main mt-auto"></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card-custom d-flex flex-column h-100">
+                    <p class="h4 mb-5">Morti totali</p>
+                    <p id="totalDeath" class="h2 mb-0 text-right text-main mt-auto"></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card-custom d-flex flex-column h-100">
+                    <p class="h4 mb-5">Attualmente Positivi</p>
+                    <p id="totalPositive" class="h2 mb-0 text-right text-main mt-auto"></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card-custom d-flex flex-column h-100">
+                    <p class="h4 mb-5">Totale in terapia intensiva</p>
+                    <p id="totalIntensiveCare" class="h2 mb-0 text-right text-main mt-auto"></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card-custom d-flex flex-column h-100">
+                    <p class="h4 mb-5">Isolamento domiciliare</p>
+                    <p id="totalHomeIsolation" class="h2 mb-0 text-right text-main mt-auto"></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card-custom d-flex flex-column h-100">
+                    <p class="h4 mb-5">Nuovi Positivi</p>
+                    <p id="totalNewPositive" class="h2 mb-0 text-right text-main mt-auto"></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card-custom d-flex flex-column h-100">
+                    <p class="h4 mb-5">Ricoverati con sintomi</p>
+                    <p id="totalHospitalizedWithSymptoms" class="h2 mb-0 text-right text-main mt-auto"></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card-custom d-flex flex-column h-100">
+                    <p class="h4 mb-5">Totale tamponi</p>
+                    <p id="totalSwabs" class="h2 mb-0 text-right text-main mt-auto"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6 scroll">
+                <div id="cardWrapper" class="row p-3">
+                    
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 scroll">
+                <div id="progressWrapper" class="row p-3">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container my-5 py-5">
+        <div class="row">
+            <div class="col-12">
+                <!-- <div id="trendNew" class="d-flex align-items-end border border-dark" style="height: 400px;"></div> -->
+            </div>
+        </div>
+    </div>
+
+
+    
+
+
+
+
+
+   
+    <script src="scripts.js"></script>
+
+</body>
+</html>
