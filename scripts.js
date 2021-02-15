@@ -39,7 +39,7 @@ fetch('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-c
             return el
         })
 
-        console.log(sorted[0])
+
 
 
         // Ultima data caricata
@@ -347,19 +347,123 @@ fetch('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-c
                             </svg>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12 text-center text-main text-uppercase">
+                            <p id="label">Nuovi positivi</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <button id="nuovi_positivi" class="btn-circle switchMap mx-2"><i class="fas fa-plus text-main"></i>
+                        </button>
+                        <button id="totale_casi" class="btn-circle switchMap mx-2"><i class="fas fa-list text-main"></i>
+                        </button>
+                        <button id="deceduti" class="btn-circle switchMap mx-2"><i class="fas fa-tombstone text-main"></i>
+                        </button>
+                        <button id="dimessi_guariti" class="btn-circle switchMap mx-2"><i class="fas fa-walking text-main"></i>
+                        </button>
+                        <button id="terapia_intensiva" class="btn-circle switchMap mx-2"><i class="fas fa-heartbeat text-main"></i>
+                        </button>
+                        <button id="tamponi" class="btn-circle switchMap mx-2"><i class="fas fa-microscope text-main"></i>
+                        </button>
+                        <button id="totale_ospedalizzati" class="btn-circle switchMap mx-2"><i class="fas fa-hospital-user text-main"></i>
+                        </button>
+                    </div>
                 </div>
                 
                `
 
-            lastUpdatedData.forEach(el => {
+            function colorMap(field) {
+
+                //massimo valore fra le regioni per il field prescelto
+                let max = Math.max(...lastUpdatedData.map(el => el[field]))
+
+                document.querySelector('#label').innerHTML = field.replace(/_/g, " ")
+
+                lastUpdatedData.forEach(el => {
+
+                    let id = document.querySelector(`#${el.code}`)
+                    id.style.fill = `rgba(255, 0, 0,${el[field] / max})`
+                })
+            }
+
+            document.querySelectorAll('.switchMap').forEach(el => {
+                el.addEventListener('click', () => {
+                    colorMap(el.id)
+                })
+            })
+
+            colorMap('nuovi_positivi')
+
+            /* lastUpdatedData.forEach(el => {
 
                 let id = document.querySelector(`#${el.code}`)
                 id.style.fill = `rgba(255, 0, 0, ${el.nuovi_positivi / 1000})`
-                
-            })
+
+            }) */
         })
 
 
+
+        let pieTrigger = document.querySelector('#pieTrigger')
+        pieTrigger.addEventListener('click', () => {
+
+            modal.classList.add('active')
+
+            let temp = []
+            for (let i = 21; i >= 1; i--) {
+
+                let color = `rgba(255, 0, 0,${(i / 21).toFixed(2)})`
+                temp.push(color)
+            }
+
+            let max = lastUpdatedData.map(el => el.nuovi_positivi).reduce((t, n) => t + n)
+
+            let recap = lastUpdatedData.map((el, i) => [el.denominazione_regione, el.nuovi_positivi, temp[i]]).sort()
+
+            let start = 0
+            let cumulative = [0, ...recap.map(el => start += +(360 * el[1] / max).toFixed(3))]
+
+            
+
+            let spreader = cumulative
+                .map((el, i) => [cumulative[i], cumulative[i + 1]])
+                .splice(0, cumulative.length - 1)
+                .map((el, i) => [...el, ...recap[i]])
+
+
+            let final = spreader.map(el => [`${el[4]} ${el[0]}deg ${el[1]}deg`, ...el])
+
+            let valueToShow = final.map(el => el[0]).join(",")
+
+
+           
+
+            modalContent.innerHTML =
+                `
+            <div class="container my-5 py-5">
+                <div class="row justify-content-center align-items-center">
+                    <div class="pieChart">
+
+                    </div>
+                </div>
+                <div id="legend" class="row mt-3">
+                    
+                </div>
+            </div>
+            `
+
+            document.querySelector('.pieChart').style.background = `conic-gradient(${valueToShow})`
+
+            let legend = document.querySelector('#legend')
+            final.forEach(el => {
+
+                let voice = document.createElement('div')
+                voice.classList.add('col-6', 'col-md-3', 'mb-3')
+                voice.innerHTML = `<p class="small mb-0">${el[3]}: ${el[4]}</p>`
+                voice.style.borderLeft = `6px solid ${el[5]}`
+                legend.appendChild(voice)
+            })
+        })
 
 
 
@@ -376,17 +480,13 @@ fetch('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-c
 
 
 
-
-
-
-
-        let trendNew = document.querySelector('#trendNew')
+        /* let trendNew = document.querySelector('#trendNew')
 
         let lombardia = sorted.reverse().filter(el => el.denominazione_regione == "Lombardia").map(el => [el.data, el.nuovi_positivi])
 
 
 
-        let maxLombardia = Math.max(...lombardia.map(el => el[1]))
+        let maxLombardia = Math.max(...lombardia.map(el => el[1])) */
 
         /* lombardia.forEach(el => {
 
