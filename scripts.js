@@ -353,19 +353,19 @@ fetch('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-c
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <button id="nuovi_positivi" class="btn-circle switchMap mx-2"><i class="fas fa-plus text-main"></i>
+                        <button id="nuovi_positivi" class="btn-circle switchMap m-2"><i class="fas fa-plus text-main"></i>
                         </button>
-                        <button id="totale_casi" class="btn-circle switchMap mx-2"><i class="fas fa-list text-main"></i>
+                        <button id="totale_casi" class="btn-circle switchMap m-2"><i class="fas fa-list text-main"></i>
                         </button>
-                        <button id="deceduti" class="btn-circle switchMap mx-2"><i class="fas fa-tombstone text-main"></i>
+                        <button id="deceduti" class="btn-circle switchMap m-2"><i class="fas fa-tombstone text-main"></i>
                         </button>
-                        <button id="dimessi_guariti" class="btn-circle switchMap mx-2"><i class="fas fa-walking text-main"></i>
+                        <button id="dimessi_guariti" class="btn-circle switchMap m-2"><i class="fas fa-walking text-main"></i>
                         </button>
-                        <button id="terapia_intensiva" class="btn-circle switchMap mx-2"><i class="fas fa-heartbeat text-main"></i>
+                        <button id="terapia_intensiva" class="btn-circle switchMap m-2"><i class="fas fa-heartbeat text-main"></i>
                         </button>
-                        <button id="tamponi" class="btn-circle switchMap mx-2"><i class="fas fa-microscope text-main"></i>
+                        <button id="tamponi" class="btn-circle switchMap m-2"><i class="fas fa-microscope text-main"></i>
                         </button>
-                        <button id="totale_ospedalizzati" class="btn-circle switchMap mx-2"><i class="fas fa-hospital-user text-main"></i>
+                        <button id="totale_ospedalizzati" class="btn-circle switchMap m-2"><i class="fas fa-hospital-user text-main"></i>
                         </button>
                     </div>
                 </div>
